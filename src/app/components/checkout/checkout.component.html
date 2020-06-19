@@ -1,0 +1,27 @@
+<mat-card class="example-card col-md-12 margin-bottom-1vh">
+    <div class="row">
+        <div class="col-md-2 text-align-center">
+                <img mat-card-image src="{{product.image}}" alt="Photo of a product">
+                <div *ngIf="product.quantity" class="col-md-12">
+                    <!-- <div>{{product.quantity}} Quantity</div> -->
+                <div class="color-black font-weight-700">Total {{product.yourPrice}}</div>
+                </div>
+        </div>
+        <div class="offset-md-1 col-md-9">
+            <div class="color-green font-size-1-5rem col-md-12">{{product.name}}</div>
+            <div class="col-md-12">{{product.description}}</div>
+            <div class="col-md-12 color-black font-weight-700">RS {{product.price}}</div>
+            <div class="col-md-12 font-weight-700">
+                <button (click)="product.slectedQuantity = 0; addToCart(product);" mat-raised-button class="background-color-green font-weight-700">Remove</button>
+                
+                <button (click)=addQuantity(product); mat-mini-fab aria-label="Example icon-button with a heart icon" class="background-color-green color-black margin-left-2rem">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <span class="margin-left-2rem font-size-1-5rem">{{product.slectedQuantity || 0}}</span>
+                <button [disabled]='slectedQuantity <= 0' (click)=removeQuantity(product); mat-mini-fab aria-label="Example icon-button with a heart icon" class="background-color-green color-black margin-left-2rem">
+                        <mat-icon>remove</mat-icon>
+                </button>
+            </div>
+        </div>
+</div>
+</mat-card>
